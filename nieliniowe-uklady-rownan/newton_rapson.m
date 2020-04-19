@@ -1,7 +1,8 @@
-function [outputArg1,outputArg2] = newton_rapson(inputArg1,inputArg2, rzad)
-%UNTITLED5 Summary of this function goes here
-%   Detailed explanation goes here
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
+function x = newton_rapson(fun, fun_poch, x0, rzad)
+if rzad == 1
+    x = x0 - fun(x0) / fun_poch(x0);
+elseif rzad == 2
+    %too much, TODO later
+end
 end
 
