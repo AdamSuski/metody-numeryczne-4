@@ -16,9 +16,9 @@ function [x, y, h] = bisekcja(fun, a, b, maxit, eps)
             fprintf('Distance is close enough (%g <= %g)\n', abs(dx), eps);
             fprintf('Stopped after %d iterations\n', i);
             break;
-        elseif fun(a) * f(m) < 0
+        elseif fun(a) * fun(m) < 0
             b = m;
-        elseif fun(b) * f(m) < 0
+        elseif fun(b) * fun(m) < 0
             a = m;
         end
         if i == maxit
@@ -27,5 +27,5 @@ function [x, y, h] = bisekcja(fun, a, b, maxit, eps)
     end
     
     x = (a + b) / 2;
-    y = f(x);
+    y = fun(x);
 end

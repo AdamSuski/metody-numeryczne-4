@@ -4,7 +4,7 @@ close all;
 clc;
 
 f = @(x) x.^2 - 612;
-xx = linspace(10., 30., 101);
+xx = linspace(10.0, 30.0, 101);
 
 [x, y, h] = bisekcja(f, 10., 30., 100, 1e-8);
 
