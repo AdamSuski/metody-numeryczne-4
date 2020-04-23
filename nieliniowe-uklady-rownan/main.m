@@ -3,7 +3,7 @@ eps = 1e-8;
 start = -2;
 koniec = 2;
 x = linspace(-2.0, 2.0, maxit+1);
-f = @(x) sin(x.^2) - x.^3 + 0.1*x + 5;
+f = @(x) sin(x.^2) - x.^3 + 0.1*x - 5;
 df = @(x) 2*x.*cos(x.^2) - 3*x.^2 + 0.1;
 
 subplot(211)
