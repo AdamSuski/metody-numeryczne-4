@@ -14,6 +14,7 @@ plot(xx, f(xx), x, y, 'o'), grid on
 xlabel('x'), ylabel('y'), legend('sin(x)', 'rozwiazanie')
 subplot(212)
 semilogy(h(:,1), abs(h(:, 3)), 's-'), grid on
+%semilogy(h(:,1), h(:, 2), 's-'), grid on
 xlabel('x'), ylabel('y'), legend('historia')
 
 %% root 
