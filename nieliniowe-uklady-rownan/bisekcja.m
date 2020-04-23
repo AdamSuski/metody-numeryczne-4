@@ -6,15 +6,15 @@ function [x, y, h] = bisekcja(fun, a, b, maxit, eps)
         h(i, :) = [i m fun(m)];
     
         if abs(fun(m)) <= eps
-            fprintf('Function is close enough (%g <= %g)\n', abs(fun(m)), eps);
-            fprintf('Stopped after %d iterations\n', i);
+            fprintf('Funkcja jest wystarczjąco blisko rozwiązania (%g <= %g)\n', abs(fun(m)), eps);
+            fprintf('Zatrzymanie po %d iteracji\n', i);
             break;
         end
     
         dx = b - a;
         if abs(dx) <= eps
-            fprintf('Distance is close enough (%g <= %g)\n', abs(dx), eps);
-            fprintf('Stopped after %d iterations\n', i);
+            fprintf('Dystans jest wystarczający (%g <= %g)\n', abs(dx), eps);
+            fprintf('Zatrzymanie po %d iteracji\n', i);
             break;
         elseif fun(a) * fun(m) < 0
             b = m;
