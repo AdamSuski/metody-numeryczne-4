@@ -5,7 +5,7 @@ function [x, y, h] = newton_raphson_1(fun, fun_poch, x0, maxit, eps)
         y0 = y0 - fun(y0) / fun_poch(y0);
         h(i, :) = [i y0 fun(y0)];
         if abs(fun(y0)) <= eps
-            fprintf('Funkcja jest wystarczjąco blisko rozwiązania (%g <= %g)\n', abs(fun(y0)), eps);
+            fprintf('Funkcja jest wystarczjąco blisko rozwiązania (%g <= %g) fun %g\n', abs(fun(y0)), eps, fun(y0));
             fprintf('Zatrzymanie po %d iteracji\n', i);
             break;
         end

@@ -10,19 +10,19 @@ x = linspace(-2.0, 2.0, maxit+1);
 f = @(x) sin(x.^2) - x.^3 + 0.1*x - 5;
 df = @(x) 2*x.*cos(x.^2) - 3*x.^2 + 0.1;
 
-subplot(211)
+%subplot(211)
 plot(x, f(x), x, df(x)), grid on;
-legend('f(x)', 'df(x)'), xlabel('x'), ylabel('Wartosci'), title('Funkcja i jej pochodna');
+legend('f(x)', 'df(x)'), xlabel('x'), ylabel('Wartości'), title('Funkcja i jej pochodna');
 
 
-subplot(212)
+%subplot(212)
 h = NaN(maxit, 3, 5);
 [xs,~,h(:,:,1)] = sieczne(f, start, koniec, maxit, eps);
 fprintf('Dla metody siecznych rozwiązanie wynosi: %g\n', xs);
 [xb,~,h(:,:,2)] = bisekcja(f, start, koniec, maxit, eps);
 fprintf('Dla metody bisekcji rozwiązanie wynosi: %g\n', xb);
-semilogy(h(:,1,2), abs(h(:,3,2)), 's-'), grid on;
-xlabel('Liczba iteracji'), ylabel('Blad'), title('zbieznosc bisekcji');
+%semilogy(h(:,1,2), abs(h(:,3,2)), 's-'), grid on;
+%xlabel('Liczba iteracji'), ylabel('Blad'), title('zbieznosc bisekcji');
 [xnr1,~,h(:,:,3)] = newton_raphson_1(f, df, 1.0, maxit, eps);
 fprintf('Dla metody Newtona-Raphsona dla x=%g rozwiązanie wynosi: %g\n', 1.0, xnr1);
 [xnr2,~,h(:,:,4)] = newton_raphson_1(f, df, 0.1, maxit, eps);
@@ -45,11 +45,11 @@ x = linspace(-2.0, 2.0, maxit+1);
 h = NaN(maxit, 3, 5);
 
 %wywolanie funkcji 
-[xs,~,h(:,:,1)] = sieczne(f, start, koniec, maxit, eps);
-[xb,~,h(:,:,2)] = bisekcja(f, start, koniec, maxit, eps);
-[xnr1,~,h(:,:,3)] = newton_raphson_1(f, df, 1.0, maxit, eps);
-[xnr2,~,h(:,:,4)] = newton_raphson_1(f, df, 0.1, maxit, eps);
-[xnr3,~,h(:,:,5)] = newton_raphson_1(f, df, 0.0, maxit, eps);
+[xs,ys,h(:,:,1)] = sieczne(f, start, koniec, maxit, eps);
+[xb,yb,h(:,:,2)] = bisekcja(f, start, koniec, maxit, eps);
+[xnr1,ynr1,h(:,:,3)] = newton_raphson_1(f, df, 1.0, maxit, eps);
+[xnr2,ynr2,h(:,:,4)] = newton_raphson_1(f, df, 0.1, maxit, eps);
+[xnr3,ynr3,h(:,:,5)] = newton_raphson_1(f, df, 0.0, maxit, eps);
 
 %wypisanie wynikow
 fprintf('Dla metody siecznych rozwiązanie wynosi: %g\n', xs);
